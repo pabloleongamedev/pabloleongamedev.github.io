@@ -68,7 +68,7 @@ export const PROJECTS = [
         description:
             "Juego del genero Tower Defense, desarrollado en unity con C#. El objetivo del juego es defender tu portería de los ataques enemigos, utilizando la mecanica de movimiento basada en el punto de vista del jugador y utilizando los potenciadores disponibles.",
         link: "https://pleond.itch.io/sumoball-soccer",
-        youtube: "https://pleond.itch.io/sumoball-soccer",
+        youtube: "https://www.youtube.com/watch?v=9n8sXo2m1j0",
         github: "https://github.com/pabloleongamedev/SumoBallSoccer",
         image: "/projects/sumoBallS.png",
         tags: [TAGS.UNITY, TAGS.CSharp, TAGS.GIT, TAGS.GITHUB],
