@@ -14,6 +14,7 @@ interface Props {
     }>;
     link?: string;
     github?: string;
+    youtube?: string; 
 }
 
 const { image, title, description, tags, link, github } = Astro.props;
@@ -69,30 +70,34 @@ const { image, title, description, tags, link, github } = Astro.props;
         </p>
 
         <footer class="flex items-center justify-start gap-x-4">
+
             {
                 github && (
-                    <LinkButton href={github} class="text-primary [#7786cf]">
-                        <Icon name="lucide:github" class="size-5" text-current />
+                    <LinkButton href={github} class="text-[#7786cf]">
+                        <Icon name="lucide:github" class="size-5 text-current" />
                         Source Code
                     </LinkButton>
                 )
             }
+
             {
-                link && (
-                    <LinkButton href={link} class="text-[#7786cf]">
+                youtube && (
+                    <LinkButton href={youtube} class="text-[#7786cf]">
                         <Icon name="lucide:youtube" class="size-4 text-current" />
                         Watch Preview
                     </LinkButton>
                 )
             }
-                        {
+
+            {
                 link && (
                     <LinkButton href={link} class="text-[#7786cf]">
-                        <Icon name="lucide:external-link" class="size-4" />
+                        <Icon name="lucide:external-link" class="size-4 text-current" />
                         Play Demo
                     </LinkButton>
                 )
             }
+
         </footer>
     </div>
 </article>
