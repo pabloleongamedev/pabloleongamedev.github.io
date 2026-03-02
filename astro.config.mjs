@@ -2,17 +2,19 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 
-
-
 export default defineConfig({
+
   site: 'https://pabloleongamedev.github.io',
+
+  output: "static",
+
   integrations: [
     tailwind(),
-    icon()
-  ],
-  integrations: [
-   icon({
-     iconDir: "src/icons"
-   })
- ]
+
+    icon({
+      iconDir: "src/icons"
+    })
+
+  ]
+
 });
