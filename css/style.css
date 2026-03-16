@@ -387,41 +387,16 @@ display:none;
 }
 
 }
-/* ============================== */
-/* DOWNLOAD CV BUTTON */
-/* ============================== */
 
-.btn-cv{
-display:inline-flex;
-align-items:center;
-gap:10px;
 
-margin-top:30px;
-
-padding:14px 26px;
-
-border-radius:10px;
-
-background:#1a1b1e;
-border:1px solid #6c5ce7;
-
-color:white;
-text-decoration:none;
-
-font-weight:600;
-font-size:0.95rem;
-
-transition:0.4s;
-}
-
-.btn-cv:hover{
-
-background:#6c5ce7;
-
-transform:translateY(-3px);
-
-box-shadow:0 0 20px rgba(108,92,231,0.4);
-
+/* Ajuste para móviles: asegurar que se mantenga centrado */
+@media (max-width: 768px) {
+    .about-text {
+        text-align: center;
+    }
+    .btn-cv-container {
+        margin-top: 30px;
+    }
 }
 
 /* Centrado del contenedor de CV */
@@ -438,7 +413,6 @@ box-shadow:0 0 20px rgba(108,92,231,0.4);
     font-size: 1rem;         /* Tamaño de fuente legible */
     min-width: 220px;        /* Ancho mínimo para que no se vea pequeño */
     justify-content: center; /* Centra el icono y texto dentro del botón */
-
 }
 
 /* Ajuste para móviles: asegurar que se mantenga centrado */

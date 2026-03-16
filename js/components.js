@@ -410,4 +410,3 @@ customElements.define('portfolio-stats', PortfolioStats);
 customElements.define('project-item', ProjectItem);
 customElements.define('portfolio-about', PortfolioAbout);
 customElements.define('portfolio-contact', PortfolioContact);
-customElements.define('pixel-war-background', PixelWarBackground);
