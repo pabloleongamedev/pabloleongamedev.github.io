@@ -3,9 +3,16 @@
 class PortfolioNavbar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <nav class="navbar">
+    <nav class="navbar">
             <div class="nav-container">
                 <a href="#home" class="nav-logo">Pablo León</a>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#work">Projects</a></li>
@@ -14,6 +21,21 @@ class PortfolioNavbar extends HTMLElement {
                 </ul>
             </div>
         </nav>`;
+
+        const hamburger = this.querySelector('.hamburger');
+        const navLinks = this.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('active');
+        });
+    });
+        
     }
 }
 
