@@ -152,13 +152,6 @@ class PortfolioAbout extends HTMLElement {
                             y la tecnología. Desde entonces, he dedicado tiempo a aprender y perfeccionar mis habilidades en 
                             programación, especialmente en el ámbito del desarrollo de juegos.
                         </p>
-
-                        <div class="btn-cv-container">
-                            <a href="assets/cv/PabloLeon_CV.pdf" class="btn-action">
-                                <i class="fa-solid fa-download"></i> Curriculum Vitae
-                            </a>
-                        </div>
-                            
                     </div>
                     <div class="skills-wrapper">
                         <ul class="skills-list">
@@ -208,7 +201,7 @@ class PortfolioContact extends HTMLElement {
     }
 }
 
-// NUEVO COMPONENTE: FONDO DE GUERRA ESPACIAL AVANZADO (HIGH-DETAIL & NEON AZUL)
+// NUEVO COMPONENTE: FONDO DE GUERRA ESPACIAL AVANZADO
 class PixelWarBackground extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `<canvas id="pixelCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></canvas>`;
@@ -236,23 +229,19 @@ class PixelWarBackground extends HTMLElement {
         });
         resize();
 
-        // Colores NEON basados en la referencia
-        const colorNeoBlue = '#00d2ff'; // Cian/Azul Eléctrico
-        const colorNeoPurple = '#6c5ce7'; // Púrpura de acento
-        const colorDeepSpace = '#010103'; // Fondo casi negro
+        const colorNeoBlue = '#00d2ff';
+        const colorDeepSpace = '#010103';
 
-        // Inicializar estrellas profundas
         for(let i=0; i<180; i++) {
             stars.push({ 
                 x: Math.random()*canvas.width, 
                 y: Math.random()*canvas.height, 
-                s: 0.2 + Math.random()*1.5, // Velocidad variable para profundidad
-                r: 0.5 + Math.random()*1.2, // Tamaño variable
-                a: 0.5 + Math.random()*0.5 // Opacidad base
+                s: 0.2 + Math.random()*1.5,
+                r: 0.5 + Math.random()*1.2,
+                a: 0.5 + Math.random()*0.5
             });
         }
 
-        // Helper para dibujar naves geométricas con glow
         function drawShip(ctx, x, y, width, height, color, isPlayer = false) {
             ctx.save();
             ctx.shadowBlur = 15;
@@ -261,23 +250,20 @@ class PixelWarBackground extends HTMLElement {
             ctx.beginPath();
             
             if (isPlayer) {
-                // Nave Jugador (Estilo Fighter clásico con cañón central)
-                ctx.moveTo(x, y - height/2); // Punta
-                ctx.lineTo(x + width/2, y + height/2); // Ala derecha
-                ctx.lineTo(x, y + height/3); // Centro base
-                ctx.lineTo(x - width/2, y + height/2); // Ala izquierda
+                ctx.moveTo(x, y - height/2);
+                ctx.lineTo(x + width/2, y + height/2);
+                ctx.lineTo(x, y + height/3);
+                ctx.lineTo(x - width/2, y + height/2);
             } else {
-                // Nave Enemiga (Estilo Interceptor agresivo)
-                ctx.moveTo(x - width/2, y - height/2); // Ala superior izq
-                ctx.lineTo(x + width/2, y - height/2); // Ala superior der
-                ctx.lineTo(x, y + height/2); // Punta inferior central
+                ctx.moveTo(x - width/2, y - height/2);
+                ctx.lineTo(x + width/2, y - height/2);
+                ctx.lineTo(x, y + height/2);
             }
             ctx.closePath();
             ctx.fill();
             ctx.restore();
         }
 
-        // Helper para explosiones
         function createExplosion(x, y, color) {
             for(let i=0; i<15; i++) {
                 explosions.push({
@@ -296,16 +282,13 @@ class PixelWarBackground extends HTMLElement {
             const deltaTime = currentTime - lastTime;
             lastTime = currentTime;
 
-            // Fondo espacial profundo
             ctx.fillStyle = colorDeepSpace;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Estrellas profundas con sutil parpadeo
             stars.forEach(s => {
                 s.y += s.s * (deltaTime/16);
                 if(s.y > canvas.height) s.y = -10;
                 
-                // Parpadeo sutil
                 const alpha = s.a + Math.sin(currentTime * 0.005 + s.x) * 0.2;
                 ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0.1, Math.min(1, alpha))})`;
                 ctx.beginPath();
@@ -313,24 +296,21 @@ class PixelWarBackground extends HTMLElement {
                 ctx.fill();
             });
 
-            // Disparos automáticos mejorados (Láseres rápidos con glow)
             if (Math.random() > 0.93) {
                 bullets.push({ x: mouseX, y: canvas.height - 70, speed: 12 });
             }
 
-            // Dibujar balas (Láseres Azules Neon)
             ctx.save();
             ctx.shadowBlur = 20;
             ctx.shadowColor = colorNeoBlue;
             ctx.fillStyle = colorNeoBlue;
             bullets.forEach((b, i) => {
                 b.y -= b.speed * (deltaTime/16);
-                ctx.fillRect(b.x - 1.5, b.y, 3, 20); // Láser más largo y estilizado
+                ctx.fillRect(b.x - 1.5, b.y, 3, 20);
                 if(b.y < -30) bullets.splice(i, 1);
             });
             ctx.restore();
 
-            // Enemigos (Interceptores detallados)
             if (Math.random() > 0.975) {
                 enemies.push({ 
                     x: Math.random()*canvas.width, 
@@ -343,13 +323,9 @@ class PixelWarBackground extends HTMLElement {
 
             enemies.forEach((e, i) => {
                 e.y += e.speed * (deltaTime/16);
-                
-                // Dibujo Nave Enemiga (Cian Neon)
                 drawShip(ctx, e.x, e.y, e.w, e.h, colorNeoBlue);
 
-                // Colisión avanzada con balas
                 bullets.forEach((b, bi) => {
-                    // Verificamos proximidad al centro de la nave enemiga
                     if (Math.abs(b.x - e.x) < e.w/1.5 && Math.abs(b.y - e.y) < e.h/1.5) {
                         createExplosion(e.x, e.y, colorNeoBlue);
                         enemies.splice(i, 1);
@@ -360,15 +336,14 @@ class PixelWarBackground extends HTMLElement {
                 if(e.y > canvas.height + 40) enemies.splice(i, 1);
             });
 
-            // Explosiones
             explosions.forEach((p, i) => {
                 p.x += p.vx;
                 p.y += p.vy;
                 p.life -= 1;
-                p.r *= 0.96; // Se encogen
+                p.r *= 0.96;
 
                 ctx.fillStyle = p.color;
-                ctx.globalAlpha = p.life / 50; // Se desvanecen
+                ctx.globalAlpha = p.life / 50;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
                 ctx.fill();
@@ -377,12 +352,10 @@ class PixelWarBackground extends HTMLElement {
                 if(p.life <= 0 || p.r < 0.1) explosions.splice(i, 1);
             });
 
-            // Dibujar Nave Jugador (Sigue al mouse en X, con Glow)
             const playerW = 35;
             const playerH = 45;
             const playerY = canvas.height - 60;
             
-            // Efecto de motor (Estela de energía azul)
             ctx.save();
             ctx.shadowBlur = 25;
             ctx.shadowColor = colorNeoBlue;
@@ -399,14 +372,15 @@ class PixelWarBackground extends HTMLElement {
 
             requestAnimationFrame(animate);
         }
+
         animate(0);
     }
 }
 
-// Registro de elementos
 customElements.define('portfolio-navbar', PortfolioNavbar);
 customElements.define('portfolio-hero', PortfolioHero);
 customElements.define('portfolio-stats', PortfolioStats);
 customElements.define('project-item', ProjectItem);
 customElements.define('portfolio-about', PortfolioAbout);
 customElements.define('portfolio-contact', PortfolioContact);
+customElements.define('pixel-war-background', PixelWarBackground);
