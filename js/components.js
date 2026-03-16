@@ -79,7 +79,6 @@ class PortfolioStats extends HTMLElement {
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <div class="stat-main">
-                            <span class="status-dot"></span>
                             <span class="stat-number">+ 10</span>
                         </div>
                         <p class="stat-label">PROTOTIPOS REALIZADOS</p>
@@ -120,9 +119,9 @@ class ProjectItem extends HTMLElement {
                 </div>
                 <p class="project-full-desc">${description}</p>
                 <div class="project-actions">
-                    <a href="${repo}" class="btn-action"><i class="fa-brands fa-github"></i> Source Code</a>
-                    <a href="${preview}" class="btn-action"><i class="fa-brands fa-youtube"></i> Watch Preview</a>
-                    <a href="${demo}" class="btn-action"><i class="fa-solid fa-up-right-from-square"></i> Play Demo</a>
+                    <a href="${repo}" class="btn-action" target="_blank"><i class="fa-brands fa-github"></i> Source Code</a>
+                    <a href="${preview}" class="btn-action" target="_blank"><i class="fa-brands fa-youtube"></i> Watch Preview</a>
+                    <a href="${demo}" class="btn-action" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Play Demo</a>
                 </div>
             </div>
         </article>`;
@@ -152,6 +151,11 @@ class PortfolioAbout extends HTMLElement {
                             y la tecnología. Desde entonces, he dedicado tiempo a aprender y perfeccionar mis habilidades en 
                             programación, especialmente en el ámbito del desarrollo de juegos.
                         </p>
+                        <div class="btn-cv-container">
+                            <a href="assets/cv/PabloLeon_CV.pdf" class="btn-action" target="_blank">
+                                <i class="fa-solid fa-download"></i> Curriculum Vitae
+                            </a>
+                        </div>
                     </div>
                     <div class="skills-wrapper">
                         <ul class="skills-list">
