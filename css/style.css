@@ -6,12 +6,28 @@
     --bg-gray: #161618;
     --accent: #6c5ce7;
     --text-white: #ffffff;
-    --text-dim: #888888;
+    --text-dim: #ebebeb;
     --transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
     --stat-bg: #0a0a0c;
 }
 
+/* ================================= */
+/* SISTEMA TIPOGRÁFICO GLOBAL */
+/* ================================= */
+
+.text-dim {
+    color: var(--text-dim);
+    font-size: calc(1rem + 2px);
+    line-height: 1.7;
+}
+
+.highlight {
+    color: var(--accent);
+    font-weight: 700;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
 
 body {
     background-color: var(--bg-black);
@@ -91,10 +107,9 @@ section {
 .main-title { font-size: clamp(3rem, 10vw, 5rem); font-weight: 800; }
 .title-underline { width: 220px; height: 6px; background: var(--accent); margin: 10px auto 30px; border-radius: 10px; }
 
-.hero-bio { 
-    max-width: 700px; 
-    margin: 0 auto 20px; 
-    color: var(--text-dim); 
+.hero-bio {
+    max-width: 700px;
+    margin: 0 auto 20px;
     text-align: center;
 }
 
@@ -112,7 +127,7 @@ section {
 }
 .video-placeholder img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
 .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: white; transition: var(--transition); }
-.video-caption { margin-top: 15px; font-size: 1.2rem; color: var(--text-dim); }
+.video-caption { margin-top: 15px}
 
 .video-placeholder:hover {
     border-color: var(--accent);
@@ -123,34 +138,10 @@ section {
     transform: translate(-50%, -50%) scale(1.15);
 }
 
-/* STATS */
-.stats { padding: 60px 0; background: transparent; }
-.stats-card { 
-    background: rgba(10, 10, 12, 0.8); 
-    border: 1px solid rgba(255, 255, 255, 0.05); 
-    border-radius: 24px; 
-    display: flex; 
-    justify-content: space-around; 
-    align-items: center; 
-    padding: 40px 20px; 
-    transition: var(--transition);
-    backdrop-filter: blur(5px);
-}
-.stats-card:hover {
-    border-color: var(--accent);
-    background: rgba(108, 92, 231, 0.05);
-}
-.stat-item { text-align: center; flex: 1; transition: var(--transition); }
-.stat-main { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 10px; }
-.stat-main i { font-size: 1.8rem; color: #6464af; }
-.stat-number { font-size: 2.5rem; font-weight: 800; color: #a2a2ff; }
-.stat-label { font-size: 0.7rem; font-weight: 700; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
-.stat-divider { width: 1px; height: 60px; background: rgba(255, 255, 255, 0.1); }
-.status-dot { width: 12px; height: 12px; background-color: #2ecc71; border-radius: 50%; box-shadow: 0 0 10px #2ecc71; }
 
 /* WORK */
 .work { padding: 120px 0; }
-.section-label { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.4em; color: #777; margin-bottom: 80px; text-align: center; font-weight: 400; }
+.section-label { font-size: calc(1.2rem + 4px); /* ↑ tamaño */; text-transform: uppercase; letter-spacing: 0.4em; color: #bbb3b3; /* ↑ nuevo color */; margin-bottom: 80px; text-align: center; font-weight: 400; }
 .projects-list { display: flex; flex-direction: column; gap: 100px; }
 .project-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
 
@@ -195,10 +186,13 @@ section {
 .tag-git i { color: #F05032; }
 .tag-github i { color: #ffffff; }
 
-.project-full-desc { 
-    font-size: 1.1rem; color: var(--text-dim); margin-bottom: 30px; 
-    max-width: 800px; line-height: 1.8; margin: 0 auto 30px; 
-    text-align: center;
+.project-full-desc {
+    margin-bottom: 30px;
+    max-width: 800px;
+    line-height: 1.8;
+    margin: 0 auto 30px;
+    text-align: justify;
+    
 }
 
 .project-actions { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
@@ -219,9 +213,8 @@ section {
 .focus-text { font-size: 2.5rem; font-weight: 300; text-align: left; }
 .text-highlight { color: var(--accent); font-style: italic; }
 
-.main-bio { 
-    color: var(--text-dim); 
-    line-height: 1.8; 
+.main-bio {
+    line-height: 1.8;
     text-align: left;
 }
 .skills-wrapper {
@@ -234,8 +227,12 @@ section {
     padding-left: 30px; 
     text-align: left; 
 }
-.skills-list li { margin-bottom: 12px; font-size: 0.9rem; color: var(--text-dim); display: flex; align-items: center; transition: var(--transition); }
-.skills-list li i { margin-right: 10px; font-size: 1.1rem; width: 25px; text-align: center; }
+.skills-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}.skills-list li i { margin-right: 10px; font-size: 1.1rem; width: 25px; text-align: center; }
 
 /* Icon Colors */
 .icon-unity { color: #ffffff; }
@@ -295,7 +292,7 @@ section {
 .twitter { background: #00acee; }
 .github { background: #333; }
 
-.footer { padding: 40px; text-align: center; color: #6c5ce7; font-size: 0.8rem; background: rgba(0,0,0,0.8); }
+.footer { padding: 40px; text-align: center; color: #6c5ce7; font-size: 0.75 rem; background: rgba(0,0,0,0.8); }
 
 @media (max-width: 768px) {
     .about-grid { grid-template-columns: 1fr; }

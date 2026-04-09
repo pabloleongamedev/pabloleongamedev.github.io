@@ -78,37 +78,7 @@ class PortfolioHero extends HTMLElement {
 }
 
 class PortfolioStats extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
-        <section class="stats">
-            <div class="container">
-                <div class="stats-card">
-                    <div class="stat-item">
-                        <div class="stat-main">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span class="stat-number">+1</span>
-                        </div>
-                        <p class="stat-label">AÑOS DE EXPERIENCIA</p>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-main">
-                            <i class="fa-solid fa-folder-open"></i>
-                            <span class="stat-number">1+</span>
-                        </div>
-                        <p class="stat-label">PROYECTOS TERMINADOS</p>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-main">
-                            <span class="stat-number">+ 10</span>
-                        </div>
-                        <p class="stat-label">PROTOTIPOS REALIZADOS</p>
-                    </div>
-                </div>
-            </div>
-        </section>`;
-    }
+    connectedCallback() {}
 }
 
 class ProjectItem extends HTMLElement {
